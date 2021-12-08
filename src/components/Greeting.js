@@ -1,4 +1,4 @@
-import React, {useEffect}from "react"
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getGreeting } from '../redux/reducers/greetingReducer';
@@ -12,19 +12,22 @@ const Greeting = () => {
     }
   }, []);
 
-  const getAnotherGreeting =() => {
+  const getAnotherGreeting = () => {
     dispatch(getGreeting());
-  }
+  };
 
-    return (
-      <React.Fragment>
-        <div className='header'>
-          <h1>Greeting of the day</h1>
-          <button onClick={()=>getAnotherGreeting()} className='btn'>Get another greeting</button>
-        </div>
-        <p> { message && message.text }</p>
-      </React.Fragment>
-    );
-}
+  return (
+    <>
+      <div className="header">
+        <h1>Greeting of the day</h1>
+        <button type="button" onClick={() => getAnotherGreeting()} className="btn">Get another greeting</button>
+      </div>
+      <p>
+        {' '}
+        { message && message.text }
+      </p>
+    </>
+  );
+};
 
-export default Greeting
+export default Greeting;
